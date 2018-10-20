@@ -1,0 +1,30 @@
+<?php
+	App::$view->title = '财酷ICO - 重设密码';
+	
+	App::$view->registerJs('/public/js/main/resetpwd.js');
+    App::$view->registerJs('/public/js/lib/bootstrap.min.js');
+?>
+<div class="resetpwd-wrap">
+    <h1>重设密码</h1>
+    <h4>最后一步，请输入你的新登录密码.</h4>
+    <form>
+    	<div class="item item-email"><?php echo $userInfo['email'];?></div>
+    	<div class="item">
+    		<div class="key">登录密码</div>
+    		<div class="value">
+    			<input type="password" name="password" id="password" placeholder="6-32位字符" class="inp inp-block" maxlength="32" />
+    		</div>
+    	</div>
+    	<div class="item">
+    		<div class="key">确认密码</div>
+    		<div class="value">
+    			<input type="password" name="repassword" id="repassword" placeholder="请重新输入密码" class="inp inp-block" maxlength="32" />
+    		</div>
+    	</div>
+    	<div class="item-error" id="errorTip"></div>
+    	<div class="item mt30">
+    		<a href="javascript:;" id="resetBtn" class="btn btn-major btn-block">确定</a>
+    	</div>
+    </form>
+</div>
+<div class="cpy">©2017 CAIKUICO.com. All Rights Reserved</div>

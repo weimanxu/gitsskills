@@ -1,0 +1,77 @@
+<?php
+	App::$view->title = '财酷ICO - 资金明细';
+    App::$view->registerCss('/public/css/common/bootstrap.min.css');
+    App::$view->registerCss('/public/css/capital.css');
+    App::$view->registerJs('/public/js/main/fund/capital.js');
+?>
+<div class="user-capital-wrap">
+    <div class="user-center-head clearfix">
+        <div class="left">
+            <img src="/public/images/user-capital.png">
+        </div>
+        <div class="left">
+            <h2>资金明细</h2>
+            <ul class="clearfix">
+                <li class="active"><a href="/">主页</a></li>
+                <li><a>资金管理</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="capital-list">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>时间</th>
+                    <th>金额</th>
+                    <th>类型</th>
+                    <th>状态</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if(empty($recordInfos)) {?>
+                   <tr><td colspan="4">暂无资金记录</td></tr>
+                <?php }else {?>
+                    <?php foreach ($recordInfos as $row):?>
+                    <tr>
+                        <td><?= date('Y/m/d H:i:s',$row['time'])?></td>
+                        <td><?= $row['amount']?> <?=strtoupper($row['money_type'])?></td>
+                        <td>
+                            <?php if($row['type'] == 1){?>
+                                <span>投资项目</span>
+                            <?php }elseif ($row['type'] == 2) {?>
+                                <span>充值</span>
+                            <?php }else {?>
+                                <span>提现</span>
+                            <?php }?>
+                        </td>
+                        <td>
+                            <?php if($row['type'] == 1){?>
+                            <span>投资成功</span>
+                            <?php }elseif ($row['type'] == 3 && $row['state'] == 0) {?>
+                            <span>提现已取消</span>
+                            <?php }elseif ($row['type'] == 3 && $row['state'] == 1) {?>
+                            <span>提现申请中</span>
+                            <?php }elseif ($row['type'] == 3 && $row['state'] == 2) {?>
+                            <span>提现正在处理</span>
+                            <?php }elseif ($row['type'] == 3 && $row['state'] == 3) {?>
+                            <span class="font-red">提现失败</span>
+                            <?php }elseif ($row['type'] == 3 && $row['state'] == 4) {?>
+                            <span>提现成功</span>
+                            <?php }elseif ($row['type'] == 2 && $row['state'] == 0) {?>
+                            <span class="font-red">充值失败</span>
+                            <?php }else {?>
+                            <span>充值成功</span>
+                            <?php }?>
+                        </td>
+                    </tr>
+                    <?php endforeach;?>
+                <?php }?>
+            </tbody>
+        </table>
+        <!--分页-->
+        <input type="hidden" id="pages" value="<?= $pageInfo['pageCount']?>">
+        <input type="hidden" id="curr" value="<?= $pageInfo['page']?>">
+        <div id="page" style="text-align:center"></div>
+    </div>
+</div>
+ 

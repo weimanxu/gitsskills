@@ -1,0 +1,35 @@
+@CHARSET "UTF-8";
+.user-capital-wrap {
+    padding: 40px;
+}
+.capital-list {
+    margin-top: 40px;
+}
+.capital-list .table {
+    border: 1px solid #e5e5e5;
+}
+.capital-list .table>thead>tr>th {
+    color: #666;
+    height: 25px;
+    line-height: 25px;
+    font-weight: normal;
+    font-size: 14px;
+    background: #f9f9fb;
+    text-align: center;
+    border-bottom: 1px solid #ededed;
+}
+.capital-list .table>tbody>tr>td {
+    height: 25px;
+    line-height: 25px;
+    font-size: 14px;
+    color: #333333;
+    text-align: center;
+    border: none;
+}
+.capital-list .table>tbody>tr>td>span {
+    font-size: 14px;
+    color: #999999;
+}
+.capital-list .table .font-red {
+    color: #FF4C4C;
+}

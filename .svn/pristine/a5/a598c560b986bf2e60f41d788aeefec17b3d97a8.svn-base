@@ -1,0 +1,75 @@
+<?php
+    App::$view->registerCss('/public/css/common/bootstrap.min.css');
+    App::$view->registerCss('/public/css/security.css');
+    App::$view->registerJs('/public/js/lib/bootstrap.min.js');
+    App::$view->registerJs('/public/js/main/user/security.js');
+?>
+    <div class="user-safe-wrap">
+        <div class="clearfix home-nav">
+            <img src="/public/images/safe_icon.png">
+            <div>
+                <h2>安全设置</h2>
+                <ul><li><a href="/">主页</a></li><li><a>个人账户</a></li></ul>
+            </div>
+        </div>
+
+        <div class="alert" role="alert">
+            <p><img src="/public/images/suc_phone_icon.png"><span>手机号码</span></p>
+             <span >账户启动时通知该号码：<?= Format::convertPhone($userInfo['phone'])?>（修改后24小时不能提现）</span>
+            <a class="change_suc" data-toggle="modal" data-target="#myModal" data-info="<?= Format::convertPhone($userInfo['phone'])?>">修改</a>
+        </div>
+        <div class="alert" role="alert">
+            <p><img src="/public/images/suc_code_icon.png"><span>登录密码</span></p>
+            <span>您上次登录的时间为：<?= date('Y/m/d H:i:s',$login_infos[0]['createtime'])?>&nbsp;&nbsp;IP为：<?= $login_infos[0]['ip']?></span>
+            <a class="change_suc" data-info="change" data-toggle="modal" data-target="#myModal">修改</a>
+        </div>
+        <div class="alert" role="alert">
+            <p><img src="/public/images/suc_email_icon.png"><span>邮箱绑定</span></p>     
+            <span>用户登录进行时确认（修改后24小时不能提现）</span>
+            <a class="change_suc" data-toggle="modal" data-target="#myModal" data-info="<?= $userInfo['email']?>">修改</a>
+        </div>
+        <div class="alert" role="alert">
+            <p><img src="/public/images/suc_crash_icon.png"><span>资金密码</span></p>                   
+            <span>用户提现时进行确认（修改后24小时不能提现）</span>
+            <a class="change_suc" id="crash" data-toggle="modal" data-target="#myModal" data-info="<?= $userInfo['fund_password']?>" data-phone="<?= Format::convertPhone($userInfo['phone'])?>" data-email="<?= $userInfo['email']?>">设置</a>
+        </div>
+        <div class="alert" role="alert">
+            <p><img src="/public/images/suc_identy_icon.png"><span>身份认证</span></p>
+            <span>确认用户真实身份</span>
+            <a class="change_suc" href="/user/identity" data-info="<?= $verify_state==2?'2':'' ?>">查看</a>
+        </div>
+        
+        <div class="myRecord">
+            <h2>最近十次登录记录</h2>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="text-center">登录时间</th>
+                        <th class="text-center">登录IP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($login_infos as $row):?>
+                    <tr>
+                        <td class="text-center "><?= $row['ip']?></td>
+                        <td class="text-center"><?= date('Y/m/d H:i:s',$row['createtime'])?></td>
+                    </tr>
+                    <?php endforeach;?>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">╳</span></button>
+                        <h4 class="modal-title" id="myModalLabel"></h4>
+                    </div>
+                    <div class="modal-body">
+                        
+                    </div>                          
+                </div>
+            </div>
+        </div>  
+    </div>

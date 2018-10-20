@@ -1,0 +1,25 @@
+<?php
+	App::$view->title = '财酷ICO - ' . $projectInfo['name'];
+	
+	App::$view->registerCss('/public/css/project.css');
+    App::$view->registerJs('/public/js/lib/bootstrap.min.js');
+	
+?>
+<div class="location-wrap clearfix">
+	<div class="right">
+    	<ul class="clearfix">
+    		<li><a href="/">主页</a></li>
+    		<li><a href="/project/list">项目</a></li>
+    		<li class="active"><strong><?= $projectInfo['name'] ?></strong></li>
+    	</ul>
+	</div>
+	<div class="left">
+		<a href="javascript:;" class="active">项目详情</a>
+		<a href="/project/invest?id=<?= $projectInfo['id'] ?>">项目投资</a>
+	</div>
+</div>
+<div class="main-wrap">
+	<div class="project-detail-wrap <?= $projectInfo['id']<=11?'old-project-detail':'' ?>">
+		<?= $projectInfo['detail'] ?>
+	</div>
+</div>

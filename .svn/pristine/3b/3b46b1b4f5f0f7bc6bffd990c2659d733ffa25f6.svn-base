@@ -1,0 +1,27 @@
+<?php
+	App::$view->title = '财酷ICO - 重设密码';
+	
+	App::$view->registerJs('/public/js/main/forget.js');
+    App::$view->registerJs('/public/js/lib/bootstrap.min.js');
+?>
+<div class="forget-wrap">
+    <h1>重设密码</h1>
+    <h4>输入你的邮箱来重设密码.</h4>
+    <form>
+    	<div class="item">
+    		<div class="value">
+    			<input type="text" name="email" id="email" placeholder="Email" class="inp inp-block" />
+    		</div>
+    	</div>
+    	<div class="item-error" id="errorTip"></div>
+    	<div class="item mt30">
+    		<a href="javascript:;" id="forgetBtn" class="btn btn-major btn-block">发送邮件</a>
+    	</div>
+    	<a href="/login" class="btn btn-hollow btn-block">登录</a>
+    </form>
+</div>
+<div class="forget-send-wrap">
+	<h1>发送成功</h1>
+    <h4>一封确认邮件已经发往您的邮箱，请点击内含的链接完成重设密码.</h4>
+</div>
+<div class="cpy">©2017 CAIKUICO.com. All Rights Reserved</div>

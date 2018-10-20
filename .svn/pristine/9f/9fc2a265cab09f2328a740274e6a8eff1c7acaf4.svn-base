@@ -1,0 +1,72 @@
+<?php
+	App::$view->title = '财酷ICO - 个人中心';
+    App::$view->registerCss('/public/css/home.css');
+	
+	App::$view->registerJs('/public/js/main/user/home.js');
+?>
+<div class="user-home-wrap">
+    <div class="home-balance">
+        <div class="clearfix home-nav">
+            <img src="/public/images/toatal-ico.png">
+            <div>
+                <h2>账户总揽</h2>
+                <ul><li><a href="/">主页</a></li><li><a>个人账户</a></li></ul>
+            </div>
+        </div>
+        <div class="balance-show">
+            <p>账户余额</p>
+            <div class="content-part">
+                <div class="show-box">
+                    <img src="/public/images/BTC_ico.png">
+                    <div class="show">
+                        <p>BTC</p>
+                        <span><?= Format::formatNumber($userInfo['btc_usable'], 8, false, true, ',')?></span>
+                    </div>
+                </div>
+                <span></span>
+                <div class="show-box">
+                    <img src="/public/images/ETH_icon.png">
+                    <div class="show">
+                        <p>ETH</p>
+                        <span><?= Format::formatNumber($userInfo['eth_usable'], 8, false, true, ',')?></span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+    <div class="home-myProject">   
+        <h2>我支持的项目</h2>      
+        <?php if(empty($user_project)) {?>
+        <p class="text-center"><img src="/public/images/null.png"></p>
+        <p class="null">暂无支持的项目，<a href="/project/list">去支持</a></p>
+        <?php }else {?> 
+        <div>
+            <?php foreach ($user_project as $row):?>
+            <div class="project-info clearfix">
+                <div class="left-name">
+                    <img src="<?= $row['project_logo']?>" />
+                    <a href="/project/detail?id=<?= $row['project_id']?>" class="project-name"><?= $row['project_name']?></a>                        
+                </div>
+                <div class="left-amount">投资金额：<?php if($row['eth_amount']==null){?>
+                                       <?= Format::formatNumber($row['btc_amount'], 8, false, true, ',')?> BTC
+                            <?php }if($row['btc_amount']==null) {?>
+                                       <?= Format::formatNumber($row['eth_amount'], 8, false, true, ',')?> ETH
+                            <?php }if($row['btc_amount']!=null&&$row['eth_amount']!=null) {?>
+                                       <?= Format::formatNumber($row['btc_amount'], 8, false, true, ',')?> BTC / <?= Format::formatNumber($row['eth_amount'], 8, false, true, ',')?> ETH
+                            <?php } ?>
+                </div>
+                <div class="right-state">状态：<?php if($row['project_state']==1){?>
+                                                                                    进行中
+                            <?php }else {?>
+                                                                                    已结束
+                            <?php }?>
+                </div>        
+            </div>                                 
+            <?php endforeach;?>
+        </div>
+        <?php }?>  
+	</div>
+</div>
+

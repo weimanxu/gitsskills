@@ -1,0 +1,463 @@
+.wrapper {
+    max-width: 1920px;
+    background-color: #ffffff;
+}
+.banner-market {
+    height: 32px;
+    line-height: 32px;
+    background-color: #323232;
+    font-size: 12px;
+    color: #fff;
+    letter-spacing: .2px;
+}
+.banner-market .fr a {
+    width: 26px;
+    height: 20px;
+    position: relative;
+    margin: 0 10px 0 0;
+    display: inline-block;
+    vertical-align: sub;
+    border: 1px solid transparent;
+}
+.banner-market .fr a:hover {
+    border: 1px solid rgba(255, 255, 255, .5);
+}
+.banner-market img {
+    left: 2px;
+    top: 2px;
+    position: absolute;
+    width: 20px;
+    height: 14px;
+}
+.banner-market .currency {
+    margin-right: 50px;
+}
+.banner-market .currency:first-child {
+    margin-left: 35px;
+}
+.banner-market .currency .currency-price {
+    color: #32d764;
+}
+#carousel .carousel-indicators {
+    bottom: 0px;
+}
+#carousel .carousel-inner img {
+    width: 100%;
+    max-height: 500px;
+}
+.page-index hr {
+    border-top: 1px solid #ededed;
+}
+.page-index .body-wrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+.page-index .site-notice {
+    width: 1200px;
+    background: #ffffff;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.page-index .site-notice .notice-list {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+}
+.page-index .site-notice .notice-list>div {
+    height: 50px;
+    line-height: 50px;
+}
+.page-index .site-notice a {
+    font-size: 14px;
+    color: #666666;
+    text-decoration: none;
+}
+.page-index .site-notice a:hover {
+    color: #e55600;
+}
+.page-index .site-notice .notice-close {
+    margin-left: 20px;
+    color: #666666;
+    cursor: pointer;
+}
+.page-index .site-notice .notice-icon {
+    width: 17px;
+    height: 19px;
+    margin-right: 8px;
+    background: url('/public/images/notice.png');
+}
+.site-partner .head,
+.commitment-content .head,
+.site-project .head {
+    text-align: center;
+    padding: 80px 0 50px 0;
+}
+.site-partner .head h2,
+.commitment-content .head h2,
+.site-project .head h2 {
+    font-size: 30px;
+    color: #333333;
+    padding-bottom: 8px;
+}
+.site-partner .head p,
+.commitment-content .head p,
+.site-project .head p {
+    font-size: 14px;
+    color: #999999;
+}
+.site-project .body {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    padding-bottom: 80px;
+}
+.site-project .body .item {
+    width: 373px;
+    margin-right: 40px;
+    display: inline-table;
+    transition: all .3s ease-in-out;
+}
+.site-project .body .item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.08);
+}
+.site-project .body .item:last-child {
+    margin-right: 0px;
+}
+.site-project .item-banner {
+    position: relative;
+}
+.site-project .item-banner a {
+    display: inline-block;
+}
+.site-project .item-banner img {
+    width: 373px;
+    height: 230px;
+}
+.site-project .item-banner .subscript {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.site-project .item-banner .subscript img {
+    width: 73px;
+    height: 73px;
+}
+.site-project .item-content {
+    padding: 25px 30px 20px;
+    border: 1px solid #f2f2f2;
+    border-top: 0;
+}
+.item-content .intro {
+    padding-bottom: 25px;
+}
+.item-content .intro a {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+}
+.item-content .intro a:hover {
+    color: #f26d2b;
+}
+.item-content .intro p {
+    padding-top: 14px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #999999;
+    overflow: hidden;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+.schedule .progress {
+    height: 8px;
+    margin-bottom: 15px;
+}
+.schedule .btc-bar {
+    background-color: #f26d2b;
+}
+.schedule .eth-bar {
+    background-color: #535878;
+}
+.schedule-type {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.schedule .schedule-type .btc-text {
+    font-size: 20px;
+    font-weight: 700;
+    color: #f26d2b;
+    line-height: 35px;
+}
+.schedule .schedule-type .eth-text {
+    font-size: 20px;
+    font-weight: 700;
+    color: #535878;
+    line-height: 35px;
+}
+.schedule .schedule-type .percentage {
+    font-size: 14px;
+    color: #666666;
+}
+.item-content .foot {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+}
+.item-content .foot .text-left {
+    text-align: left;
+}
+.item-content .foot>div {
+    text-align: center;
+}
+.item-content .foot h3 {
+    font-size: 14px;
+    color: #999999;
+    white-space: nowrap;
+}
+.item-content .foot p {
+    padding-top: 5px;
+    font-size: 12px;
+    color: #333333;
+}
+.page-index .site-commitment {
+    background-color: #f7f9fa;
+}
+.commitment-pic {
+    position: relative;
+    height: 190px;
+}
+.commitment-pic img {
+    width: 109px;
+    height: 126px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.commitment-text {
+    text-align: center;
+    padding-bottom: 34px;
+}
+.commitment-text h2 {
+    font-size: 18px;
+    color: #333333;
+    padding-bottom: 15px;
+}
+.commitment-text p {
+    font-size: 14px;
+    color: #999999;
+}
+.site-commitment .body {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    padding-bottom: 80px;
+}
+.site-commitment .body .item {
+    width: 251px;
+    margin-right: 40px;
+    background-color: #ffffff;
+    transition: all .3s ease-in-out;
+}
+.site-commitment .body .item:last-child {
+    margin-right: 0px;
+}
+.site-commitment .body .item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 19px 0px rgba(0, 0, 0, 0.08);
+}
+.site-partner .body {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 60px;
+}
+.site-partner .body>a {
+    width: 200px;
+    height: 80px;
+    display: inline-block;
+}
+.partner-hebi {
+    width: 200px;
+    background: url('/public/images/partner-hebi.png')
+}
+.partner-hebi:hover {
+    width: 200px;
+    background: url('/public/images/partner-hebi-hover.png')
+}
+.partner-biduobao {
+    background: url('/public/images/partner-biduobao.png')
+}
+.partner-biduobao:hover {
+    background: url('/public/images/partner-biduobao-hover.png')
+}
+.partner-haifengteng {
+    background: url('/public/images/partner-haifengteng.png')
+}
+.partner-haifengteng:hover {
+    background: url('/public/images/partner-haifengteng-hover.png')
+}
+.partner-icolive {
+    background: url('/public/images/partner-icolive.png')
+}
+.partner-icolive:hover {
+    background: url('/public/images/partner-icolive-hover.png')
+}
+.partner-jinsecaijing {
+    background: url('/public/images/partner-jinsecaijing.png')
+}
+.partner-jinsecaijing:hover {
+    background: url('/public/images/partner-jinsecaijing-hover.png')
+}
+.partner-yuanjie {
+    background: url('/public/images/partner-yuanjie.png')
+}
+.partner-yuanjie:hover {
+    background: url('/public/images/partner-yuanjie-hover.png')
+}
+@media screen and (max-width:768px) {
+    .banner-market {
+        display: none;
+    }
+    .page-index .site-notice .notice-list>div {
+        height: 35px;
+        line-height: 35px;
+    }
+    .carousel-inner>.item>a>img {
+        transform: scale(1.0);
+        margin-left: 0;
+    }
+    .carousel-inner>a {
+        height: 35px;
+        overflow: hidden;
+    }
+    .page-index hr {
+        display: none;
+    }
+    .page-index .site-notice a {
+        font-size: 12px;
+    }
+    .page-index .body-wrap {
+        width: 100%;
+    }
+    .site-partner .head,
+    .commitment-content .head,
+    .site-project .head {
+        text-align: center;
+        padding: 30px 0 20px 0;
+    }
+    .site-partner .head h2,
+    .commitment-content .head h2,
+    .site-project .head h2 {
+        font-size: 18px;
+        padding: 10px 10px 5px 10px;
+    }
+    .site-partner .head p,
+    .commitment-content .head p,
+    .site-project .head p {
+        font-size: 12px;
+    }
+    .site-project .body {
+        display: block;
+        padding: 0 5px 0px 5px;
+    }
+    .site-project .body .item {
+        width: 100%;
+        margin: 0 auto 30px;
+    }
+    .site-project .item-banner a {
+        width: 100%;
+    }
+    .site-project .item-banner img {
+        width: 100%;
+        height:auto;
+    }
+    .site-project .item-content {
+        padding: 15px 8px 25px;
+        border: 1px solid #f2f2f2;
+        border-top: 0;
+    }
+    .item-content .intro {
+        padding-bottom: 10px;
+    }
+    .item-content .intro a {
+        font-size: 16px;
+    }
+    .item-content .intro p {
+        padding-top: 0;
+        font-size: 12px;
+    }
+    .schedule .schedule-type .btc-text {
+        font-size: 16px;
+        line-height: 25px;
+    }
+    .schedule .schedule-type .eth-text {
+        font-size: 16px;
+        line-height: 25px;
+    }
+    .site-commitment .body {
+        display: block;
+        justify-content: center;
+        padding-bottom: 30px;
+    }
+    .site-commitment .body .item {
+        width: 100%;
+        margin: 0 auto;
+        transform: scale(0.9);
+    }
+    .commitment-pic {
+        height: 150px;
+    }
+    .index-foot .foot-wrap {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .about-us {
+        float: left;
+        width: 100%;
+        margin-right: 0;
+        padding: 20px 10px 10px 10px;
+    }
+    .connect-us {
+        padding: 10px 10px;
+    }
+    .commitment-text {
+        padding-bottom: 15px;
+    }
+    #carousel .carousel-inner img {
+        width: 100%;
+        height: auto;
+    }
+    .connect-us-icon span {
+        width: 100%;
+    }
+    .mg-l56 {
+        margin-left: 10px;
+    }
+    .item a {
+        width: 100%;
+    }
+    .index-foot .foot-wrap h2 {
+        font-size: 18px;
+        padding-bottom: 10px;
+    }
+    .site-partner .body>a {
+        float: left;
+        width: 50%;
+        background-size: contain;
+    }
+}

@@ -1,0 +1,72 @@
+<?php
+	App::$view->title = '财酷ICO';
+	
+	//日历插件
+	App::$view->registerCss('/public/fullcalendar/fullcalendar.min.css');
+	App::$view->registerCss('/public/fullcalendar/fullcalendar.print.min.css', null, [
+	    'media' => 'print'
+	]);
+	App::$view->registerJs('/public/fullcalendar/moment.min.js');
+	App::$view->registerJs('/public/fullcalendar/fullcalendar.min.js');
+	App::$view->registerJs('/public/fullcalendar/locale-all.js');
+	
+	//行情
+	App::$view->registerJs('/public/js/lib/pako.js');
+	
+	App::$view->registerJs('/public/js/main/index.js');
+?>
+<div class="page-index">
+	<div class="banner-pic-wrap">
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel" data-slide-to="0" class="active"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <a href="/project/detail?id=11"><img src="/attachment/images/biguo-banner.jpg" alt="..."></a>
+                </div>
+            </div>
+        </div>
+	</div>
+    <div class="site-intro box">
+    	<h2>欢迎来到财酷ICO</h2>
+    	<p>或许是最安全最有原则的ICO平台</p>
+    </div>
+    <div class="price-wrap clearfix">
+    	<div class="item">
+    		<div class="box inner">
+        		<div class="title clearfix">
+        			<span class="left">比特币/人民币</span>
+        			<span class="right">BTC/CNY</span>
+        		</div>
+        		<div class="price" id="btcPrice">¥-</div>
+    		</div>
+    	</div>
+    	<div class="item">
+    		<div class="box inner">
+        		<div class="title clearfix">
+        			<span class="left">以太币/人民币</span>
+        			<span class="right">ETH/CNY</span>
+        		</div>
+        		<div class="price" id="ethPrice">¥-</div>
+    		</div>
+    	</div>
+    	<div class="item">
+    		<div class="box inner">
+        		<div class="title clearfix">
+        			<span class="left">莱特币/人民币</span>
+        			<span class="right">LTC/CNY</span>
+        		</div>
+        		<div class="price" id="ltcPrice">¥-</div>
+    		</div>
+    	</div>
+    </div>
+    <div class="calendar box mt30">
+    	<div class="title">
+    		ICO日历
+    	</div>
+    	<div class="inner">
+    	   <div id="calendar"></div>    	
+    	</div>
+    </div>
+</div>

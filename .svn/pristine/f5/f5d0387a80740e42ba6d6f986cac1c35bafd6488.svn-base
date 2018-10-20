@@ -1,0 +1,137 @@
+<?php
+	App::$view->title = '财酷ICO - 资金提现';
+    App::$view->registerCss('/public/css/funds.css');
+    App::$view->registerJs('/public/js/lib/bootstrap.min.js');
+    App::$view->registerJs('/public/js/lib/bignumber.min.js');
+	App::$view->registerJs('/public/js/main/fund/funds.js');
+?>
+<div class="user-founds-wrap" data-type="<?= $type?>">
+    <div class="user-center-head clearfix">
+        <div class="left">
+            <img src="/public/images/recharge-<?= $type ?>.png">
+        </div>
+        <div class="left">
+            <h2><?= strtoupper($type) ?>提现</h2>
+            <ul class="clearfix">
+                <li class="active"><a href="/">主页</a></li>
+                <li><a>资金管理</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="founds-body">
+        <ul class="founds-body-nav clearfix">
+            <li><a class="<?= $type == 'btc' ? 'active' : ''?>" href="/fund/withdrawal?type=btc">BTC提现</a></li>
+            <li><a class="<?= $type == 'eth' ? 'active' : ''?>" href="/fund/withdrawal?type=eth">ETH提现</a></li>
+        </ul>
+        <div class="notice">
+            <?php if($userInfo['fund_password'] == ''){?>
+            <p class="set-password">你当前还没设置资金密码，暂不能提币，请设置<a href="/user/security">资金密码。</a></p>
+            <?php }else {?>
+            <p>当前每日最高可提现<?= $maxAmount?>个币。</p>
+            <p class="font-red">特别提示：因<?=strtoupper($type)?>交易量大，网络确认时间长，为了您的交易更快被确认，建议您增加网络手续费。</p>
+            <p class="font-red">为了您的资金安全，在绑定、修改手机、更换验证方式以及更改资金密码后24小时内不允许提币，如有此操作需求请联系客服。</p>
+            <?php }?>
+        </div>
+        <div class="founds-withdrawal">
+            <form id="withdrawalForm">
+                <?php if($userInfo['fund_password'] != ''){?>
+                <label for="withdraw_address">提现地址：</label>
+                    <?php if($addressInfo['address'] != ''){?>
+                        <input class="form-control" type="text" value="<?= $addressInfo['address']?>" disabled/>
+                        <a data-toggle="modal" data-target="#addressModal" href="javascript:;">修改</a>
+                    <?php }else {?>
+                        <a class="new-add" data-toggle="modal" data-target="#addressModal" href="javascript:;">添加地址</a>
+                        <span class="new-tip">添加地址后才能提现</span>
+                    <?php }?>
+                <br>    
+                <label for="minAmount">提现金额：</label>
+                <input class="form-control" type="text" name="amount" id="minAmount" placeholder="最低提现 <?= $minAmount?>" data-minimum="<?= $minAmount?>"/>
+                <p class="footnote">
+                    目前最多可提：
+                    <span class="qty" data-qty="<?= $userInfo[$type.'_usable'] >= $maxAmount ? $maxAmount : $userInfo[$type.'_usable'] ?>">
+                        <?php if($userInfo[$type.'_usable'] >= $maxAmount){?>
+                            <?= $maxAmount.strtoupper($type) ?>
+                        <?php }else {?>
+                            <?= $userInfo[$type.'_usable'].strtoupper($type) ?>
+                        <?php }?>
+                    </span>
+                </p> 
+                <label for="withdrawFee">网络手续费：</label>
+                <input class="form-control" type="text" name="fee" id="withdrawFee" placeholder="当前网络手续费平均为 <?= $minFee?>"/>   
+                <br> 
+                <label for="fund_password">资金密码：</label>
+                <input type="password" name="fund_password" style="display:none" disabled>
+                <input class="form-control" type="password" name="fund_password" id="fundPassword" placeholder="请输入您的资金密码"/>
+                <p class="footnote"><a href="/user/security">忘记资金密码</a></p> 
+                <button type="button" class="btn btn-withdrawal">确认提现</button>   
+                <?php }?>
+            </form>
+        </div>
+        <div class="record">
+            <h2>提现记录</h2>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>提现时间</th>
+                        <th>提现金额</th>
+                        <th>网络手续费</th>
+                        <th>提现地址</th>
+                        <th>提现状态</th>
+                        <th>描述</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if(empty($result)) {?>
+                        <tr><td colspan="7">暂无提现记录</td></tr>
+                    <?php }else {?>
+                        <?php foreach ($result as $row):?>
+                        <tr>
+                            <td><?= date('Y/m/d H:i:s',$row['createtime'])?></td>
+                            <td><?= $row['amount']?> <?=strtoupper($type)?></td>
+                            <td><?= $row['fee']?></td>
+                            <td><?= $row['withdraw_address']?></td>
+                            <td><?= ['<span>已取消</span>', '<span>申请中</span>', '<span>处理中</span>', '<span class="font-red">提现失败</span>', '<span>提现成功</span>'][$row['withdraw_state']]?></td>
+                            <td><?= $row['reason']?></td>
+                            <td>
+                                <?php if($row['withdraw_state'] == 1){?>
+                                <a href="javascript:;" class="recall" data-id="<?= $row['id']?>">撤回</a>
+                                <?php }elseif ($row['withdraw_state'] == 4 && !empty($row['txid'])){?>
+                                <a target="_blank" href="<?= $row['type'] == 'btc' ? 'https://blockchain.info/tx/' : 'https://etherscan.io/tx/' ?><?= $row['txid']?>">查看</a>
+                                <?php }?>
+                            </td>
+                        </tr>
+                        <?php endforeach;?>
+                    <?php }?>
+                </tbody>
+            </table>
+            <!--分页-->
+            <div class="pages">
+            	<?php echo Pagination::create($pageInfo['page'], $pageInfo['pageCount']);?>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="addressModal" tabindex="-1" role="dialog" aria-labelledby="addressModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">╳</span></button>
+        <h4 class="modal-title" id="addressModalLabel">新增 / 修改提现地址</h4>
+      </div>
+      <div class="modal-body">
+        <form id="addressForm">
+          <div class="form-group">
+            <input type="text" class="form-control" name="withdraw_address" placeholder="提现地址">
+          </div>
+          <div class="form-group">
+            <input type="password" name="fund_password" style="display:none" disabled>
+            <input type="password" class="form-control" name="fund_password" placeholder="资金密码">
+          </div>
+          <button type="button" class="btn btn-address">提交</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

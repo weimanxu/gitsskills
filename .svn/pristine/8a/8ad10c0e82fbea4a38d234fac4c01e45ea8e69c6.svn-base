@@ -1,0 +1,50 @@
+<?php App::$view->beginContent()?>
+
+<div class="user-main clearfix">
+	<div class="user-left-content">
+		<div class="user-nav">
+			<div class="menu-head">个人账户</div>
+			<ul class="meun-list">
+				<li>
+					<a href="/user/home">账户总览</a>
+				</li>
+				<li>
+					<a href="/user/identity">实名认证</a>
+				</li>
+				<li>
+					<a href="/user/security">安全设置</a>
+				</li>
+			</ul>
+		</div>
+		<div class="user-nav">
+			<div class="menu-head">项目管理</div>
+			<ul class="meun-list">
+				<li>
+					<a href="/user/support">我支持的项目</a>
+				</li>
+			</ul>
+		</div>
+		<div class="user-nav">
+			<div class="menu-head">资金管理</div>
+			<ul class="meun-list">
+				<li>
+					<a href="/fund/recharge">资金充值</a>
+				</li>
+				<li>
+					<a href="/fund/withdrawal">资金提现</a>
+				</li>
+				<li>
+					<a href="/fund/capital">资金明细</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="user-right-content">
+		<?= $content ?>
+	</div>
+</div>
+<?php 
+//注册js|css文件必须在加载父layout之前
+App::$view->endContent('main', ['userInfo' => $userInfo]);
+
+?>

@@ -1,0 +1,165 @@
+@CHARSET "UTF-8";
+.user-home-wrap{
+	padding:40px;
+	
+}
+.null{
+	margin-top:20px;
+	text-align:center;
+	color:#666;
+	font-size:16px;
+}
+.null a{
+	color:#e55600;
+}
+.home-balance{
+	margin-bottom:50px;
+}
+.home-nav{
+	margin-bottom:40px;
+}
+.home-nav img{
+	float:left;
+	border-radius: 5px;
+    margin-right: 12px;
+    box-shadow: 0 0 12px 0 rgba(255, 103, 103, 0.5);
+}
+.home-nav div{
+	float:left;
+}
+.home-nav div>h2{
+	margin: 5px 0 5px 0;
+    font-size: 18px;
+    color: #333333;
+}
+.home-nav div ul li{
+	float:left;
+	font-size: 14px;
+    
+}
+.home-nav div ul li a{
+	color: #999999;
+	cursor:pointer;
+}
+.home-nav div ul li:last-child a{
+	text-decoration:none;
+}
+.home-nav div ul>li+li:before {
+    content: "/\00a0";
+    padding: 0 5px;
+    color: #ccc;
+}
+.home-myProject{
+	width:100%;
+}
+
+.show-box{
+	float:left;
+}
+.content-part{
+	height:83px;
+	display:table-cell;
+	vertical-align:middle;
+}
+
+.balance-show img{
+	float:left;
+	margin-left:-9px;
+	margin-right:5px;
+}
+.show{
+	float:left;
+	padding-right:46px;
+}
+.show-box+span{
+	float:left;
+	width:1px;
+	height:40px;
+	margin-right:46px;
+	border-right:1px solid #ddd;
+	margin-top:15px;
+}
+.show p{
+	font-size:16px;
+	line-height:1.0;
+	color:#999;
+	margin-top:5px;
+	padding-bottom:12px;
+	margin-bottom:0;
+}
+.show span{
+	display:block;
+	margin-top:-10px;
+	font-size:36px;
+	color:#dd9d17;
+}
+.content-part .show-box:last-child span{
+	color:#535878;
+}
+.balance-show>p{
+	font-size:20px;
+	color:#333;
+	margin-bottom:32px;
+}
+
+.home-myProject h2 {
+	line-height:1.0;
+    font-size: 20px;
+    color: #333;
+	margin-bottom:10px;
+}
+.useable>p{
+	font-size:18px;
+}
+.useable>p>span{
+	margin-left:20px;
+}
+.project-info{
+	height:86px;
+	line-height:86px;
+	vertical-align:middle ;
+	border-bottom:1px solid #eee;
+	margin-right:100px;
+}
+.project-info>div{
+	display:inline-block;
+	vertical-align:middle;
+	margin-top:-3px;
+}
+.project-info>div>span{
+	display:inline-block;
+	width:40px;
+	height:40px;	
+	vertical-align:middle;
+	margin-right:15px;
+}
+.yulian{
+	background:url("/public/images/dochain.jpg");
+}
+.clian{
+	background:url("/public/images/cchain.jpg");
+}
+.walton{
+	background:url("/public/images/walton.png");
+	background-size:40px 40px;
+}
+.project-info>span{
+	margin-left:140px;
+	font-size:16px;
+	color:#999;
+}
+.project-info>div>a{
+	font-size:16px;
+	color:#333;
+	text-decoration:none;
+}
+.project-info>div>a:hover{
+	color:#777;
+	cursor:pointer;
+}
+.project-info>span+span{
+	float:right;
+	margin-right:5px;
+	margin-left:0px;
+}
+
