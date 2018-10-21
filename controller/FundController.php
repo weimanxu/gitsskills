@@ -52,6 +52,7 @@ class FundController extends CustomBaseController {
         $countPage  = ceil($count / $pageSize);
         if ($count == 0){
             $countPage = 1;
+            
         }
         //判断page是否超范围
         if($page > $countPage){
