@@ -35,6 +35,7 @@ class CustomBaseController extends BaseController{
                 return $userInfo;
         }
         return false;
+        
     }
     
     /**
