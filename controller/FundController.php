@@ -13,6 +13,7 @@ class FundController extends CustomBaseController {
         $userInfo=$this->pageInit();
         if(empty($userInfo)){
             App::$response->gotoPage("/login");
+            
         }
         //获取页面的当前页面
         $page = App::$request->getParam('page');
