@@ -45,6 +45,7 @@ class CustomBaseController extends BaseController{
      */
     public function checkLoginAndRedirect () {
         $userClass = new UserClass();
+        
         $uSession = Session::_getInstance('uSession')->getSession();
         if (!isset($uSession['uid'])){
             header('location: /');
