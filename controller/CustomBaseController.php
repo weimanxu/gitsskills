@@ -15,6 +15,7 @@ class CustomBaseController extends BaseController{
         $uSession = Session::_getInstance('uSession')->getSession();
         if (isset($uSession['uid'])) {
             return true;
+            
         }
         return false;
     }
