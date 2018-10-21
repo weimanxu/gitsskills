@@ -14,6 +14,7 @@ class UserController extends CustomBaseController{
         }
         
         
+        
         //获取用户项目信息
         $userClass   = new UserClass();
         $userProject = $userClass->getInfosByUid('user_project', $userInfo['id']);
