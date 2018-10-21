@@ -50,6 +50,7 @@ class CustomBaseController extends BaseController{
         if (!isset($uSession['uid'])){
             header('location: /');
             exit;
+            
         }
         
         $userInfo = $userClass->getUserInfoById($uSession['uid']);
