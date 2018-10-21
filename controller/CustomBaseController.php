@@ -51,6 +51,7 @@ class CustomBaseController extends BaseController{
             header('location: /');
             exit;
         }
+        
         $userInfo = $userClass->getUserInfoById($uSession['uid']);
         if (empty($userInfo)){
             Session::_getInstance('uSession')->cleanSession()->sendSession();
