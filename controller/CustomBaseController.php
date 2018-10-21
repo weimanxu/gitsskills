@@ -59,6 +59,7 @@ class CustomBaseController extends BaseController{
             header('location: /');
             exit;
         }
+        
         return $userInfo;
     }
     
