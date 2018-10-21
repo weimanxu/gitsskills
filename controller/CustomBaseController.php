@@ -15,6 +15,7 @@ class CustomBaseController extends BaseController{
         $uSession = Session::_getInstance('uSession')->getSession();
         if (isset($uSession['uid'])) {
             return true;
+            
         }
         return false;
     }
@@ -35,6 +36,7 @@ class CustomBaseController extends BaseController{
                 return $userInfo;
         }
         return false;
+        
     }
     
     /**
@@ -51,6 +53,7 @@ class CustomBaseController extends BaseController{
             header('location: /');
             exit;
         }
+        
         $userInfo = $userClass->getUserInfoById($uSession['uid']);
         if (empty($userInfo)){
             Session::_getInstance('uSession')->cleanSession()->sendSession();
