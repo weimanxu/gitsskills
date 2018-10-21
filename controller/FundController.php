@@ -13,6 +13,7 @@ class FundController extends CustomBaseController {
         $userInfo=$this->pageInit();
         if(empty($userInfo)){
             App::$response->gotoPage("/login");
+            
         }
         //获取页面的当前页面
         $page = App::$request->getParam('page');
@@ -52,6 +53,7 @@ class FundController extends CustomBaseController {
         $countPage  = ceil($count / $pageSize);
         if ($count == 0){
             $countPage = 1;
+            
         }
         //判断page是否超范围
         if($page > $countPage){
